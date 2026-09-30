@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="dakshGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4F46E5" />
+      <stop offset="50%" stop-color="#7C3AED" />
+      <stop offset="100%" stop-color="#06B6D4" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="115" fill="url(#dakshGrad)" />
+  <path d="M150 120 H260 C340 120 390 170 390 256 C390 342 340 392 260 392 H150 Z M215 180 V332 H256 C300 332 328 305 328 256 C328 207 300 180 256 180 Z" fill="#FFFFFF" filter="url(#shadow)" />
+  <polygon points="370,110 382,135 407,147 382,159 370,184 358,159 333,147 358,135" fill="#FEF08A" />
+</svg>

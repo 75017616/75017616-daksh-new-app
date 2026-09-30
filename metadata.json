@@ -1,0 +1,6 @@
+{
+  "name": "Daksh - Multi-Intelligence & Career Dashboard",
+  "description": "Comprehensive student intelligence platform featuring 8 Multiple Intelligences, Brain Dominance, 5 Senses, SWOT Analysis, Personality blend, and AI Counselor.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
