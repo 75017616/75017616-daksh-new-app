@@ -9,6 +9,7 @@ interface ProfileScreenProps {
   onAddMember: () => void;
   onOpenUpgrade: () => void;
   onOpenAndroidModal?: () => void;
+  onOpenFlutterModal?: () => void;
 }
 
 export const ProfileScreen: React.FC<ProfileScreenProps> = ({
@@ -18,6 +19,7 @@ export const ProfileScreen: React.FC<ProfileScreenProps> = ({
   onAddMember,
   onOpenUpgrade,
   onOpenAndroidModal,
+  onOpenFlutterModal,
 }) => {
   return (
     <div className="w-full max-w-[420px] mx-auto min-h-full bg-[#F8FAFC] pb-6 select-none flex flex-col relative">
@@ -115,6 +117,36 @@ export const ProfileScreen: React.FC<ProfileScreenProps> = ({
               );
             })}
           </div>
+        </section>
+
+        {/* Flutter Hybrid Mobile Platform Card */}
+        <section className="bg-gradient-to-r from-indigo-900 via-indigo-800 to-purple-900 rounded-2xl p-4 text-white shadow-md space-y-2.5">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-2.5">
+              <div className="w-9 h-9 rounded-xl bg-cyan-400/20 text-cyan-300 border border-cyan-400/30 flex items-center justify-center font-bold text-sm shadow-sm">
+                ⚡
+              </div>
+              <div>
+                <h3 className="text-xs font-bold text-white">Flutter Hybrid Platform</h3>
+                <p className="text-[10px] text-indigo-200">Dual-engine mobile architecture &amp; Dart SDK</p>
+              </div>
+            </div>
+            <span className="text-[10px] font-bold bg-cyan-400/20 text-cyan-300 border border-cyan-400/30 px-2 py-0.5 rounded-full">
+              Full Source
+            </span>
+          </div>
+
+          <p className="text-xs text-indigo-100/90 leading-relaxed">
+            Converted hybrid mobile app with bidirectional JS bridge, 60 FPS native Flutter screens, and full source code zip export.
+          </p>
+
+          <button
+            onClick={onOpenFlutterModal}
+            className="w-full py-2.5 px-3 bg-gradient-to-r from-indigo-500 to-cyan-500 hover:from-indigo-600 hover:to-cyan-600 active:scale-98 text-white rounded-xl text-xs font-bold shadow-md transition flex items-center justify-center gap-2 cursor-pointer"
+          >
+            <span>📦</span>
+            <span>View Flutter Source Code &amp; Export ZIP</span>
+          </button>
         </section>
 
         {/* Android & Mobile App Card */}

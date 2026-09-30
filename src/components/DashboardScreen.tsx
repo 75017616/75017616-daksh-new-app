@@ -18,6 +18,7 @@ interface DashboardScreenProps {
   onOpenLiveCounselor?: () => void;
   onTogglePlan?: () => void;
   onOpenAndroidModal?: () => void;
+  onOpenFlutterModal?: () => void;
 }
 
 export const DashboardScreen: React.FC<DashboardScreenProps> = ({
@@ -32,6 +33,7 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
   onOpenLiveCounselor,
   onTogglePlan,
   onOpenAndroidModal,
+  onOpenFlutterModal,
 }) => {
   const [showDrawer, setShowDrawer] = useState(false);
   const [notificationsOpen, setNotificationsOpen] = useState(false);
@@ -99,6 +101,17 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
 
           {/* Right Header Actions: Clean, uncluttered essentials */}
           <div className="flex items-center space-x-1.5">
+            {/* Flutter Hybrid Mobile SDK Hub Trigger */}
+            <button
+              type="button"
+              onClick={onOpenFlutterModal}
+              className="flex items-center space-x-1 px-2 py-1 rounded-xl text-[10px] font-bold border border-cyan-400/40 bg-gradient-to-r from-indigo-50 to-cyan-50 hover:from-indigo-100 hover:to-cyan-100 text-indigo-900 transition active:scale-95 cursor-pointer shadow-2xs"
+              title="Flutter Hybrid Source Code & SDK Hub"
+            >
+              <span className="text-cyan-600 font-black">⚡</span>
+              <span>Flutter</span>
+            </button>
+
             {/* Notification Bell */}
             <button
               type="button"
@@ -1250,6 +1263,56 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
                     <span className="text-sm">👨‍👩‍👧</span>
                     <span>Add Family Member</span>
                   </button>
+                </div>
+              </div>
+
+              {/* Category 5: Mobile & Flutter Platform */}
+              <div>
+                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block px-1 mb-1.5">
+                  Mobile & Hybrid SDK
+                </span>
+                <div className="space-y-1.5">
+                  <button
+                    onClick={() => {
+                      setShowDrawer(false);
+                      onOpenFlutterModal?.();
+                    }}
+                    className="w-full text-left p-3 rounded-2xl bg-gradient-to-r from-indigo-900 to-violet-950 text-white font-bold flex items-center justify-between transition active:scale-98 cursor-pointer shadow-md shadow-indigo-950/20"
+                  >
+                    <div className="flex items-center space-x-2.5">
+                      <div className="w-8 h-8 rounded-xl bg-cyan-400/20 text-cyan-300 border border-cyan-400/30 flex items-center justify-center text-sm font-black">
+                        ⚡
+                      </div>
+                      <div>
+                        <div className="flex items-center space-x-1.5">
+                          <span className="text-xs text-white">Flutter Hybrid Platform</span>
+                          <span className="bg-cyan-400/20 text-cyan-200 text-[9px] px-1.5 py-0.2 rounded-full border border-cyan-400/30 font-bold">
+                            Source
+                          </span>
+                        </div>
+                        <span className="text-[10px] text-indigo-200 font-normal">
+                          Dual-Engine Dart SDK &amp; Code Zip
+                        </span>
+                      </div>
+                    </div>
+                    <span className="text-xs text-cyan-300 font-bold">Open ›</span>
+                  </button>
+
+                  {onOpenAndroidModal && (
+                    <button
+                      onClick={() => {
+                        setShowDrawer(false);
+                        onOpenAndroidModal();
+                      }}
+                      className="w-full text-left px-3 py-2 rounded-xl hover:bg-emerald-50 text-emerald-900 font-semibold text-xs flex items-center justify-between transition active:scale-98 cursor-pointer border border-emerald-100 bg-emerald-50/50"
+                    >
+                      <span className="flex items-center space-x-2">
+                        <span>📱</span>
+                        <span>Android App &amp; APK Hub</span>
+                      </span>
+                      <span className="text-[10px] text-emerald-700 font-bold">Install</span>
+                    </button>
+                  )}
                 </div>
               </div>
             </div>

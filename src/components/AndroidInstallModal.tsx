@@ -19,9 +19,10 @@ import { usePWAInstall } from '../hooks/usePWAInstall';
 interface AndroidInstallModalProps {
   isOpen: boolean;
   onClose: () => void;
+  onOpenFlutterModal?: () => void;
 }
 
-export const AndroidInstallModal: React.FC<AndroidInstallModalProps> = ({ isOpen, onClose }) => {
+export const AndroidInstallModal: React.FC<AndroidInstallModalProps> = ({ isOpen, onClose, onOpenFlutterModal }) => {
   const { isInstallable, isInstalled, install, isAndroid, isIOS } = usePWAInstall();
   const [activeTab, setActiveTab] = useState<'instant' | 'apk' | 'qr' | 'developer'>('instant');
   const [copiedUrl, setCopiedUrl] = useState(false);
@@ -142,6 +143,25 @@ export const AndroidInstallModal: React.FC<AndroidInstallModalProps> = ({ isOpen
               CLI Build
             </button>
           </div>
+
+          {/* Quick link to Flutter Hybrid Platform */}
+          {onOpenFlutterModal && (
+            <button
+              onClick={() => {
+                onClose();
+                onOpenFlutterModal();
+              }}
+              className="w-full mt-3 py-2 px-3 bg-white/10 hover:bg-white/20 active:scale-98 rounded-xl text-xs font-semibold text-cyan-200 border border-cyan-400/30 flex items-center justify-between transition cursor-pointer"
+            >
+              <div className="flex items-center gap-2">
+                <span className="text-cyan-300 font-bold">⚡</span>
+                <span className="text-white">Flutter Hybrid Platform &amp; Source Code</span>
+              </div>
+              <span className="text-[10px] bg-cyan-400/20 px-2 py-0.5 rounded-full border border-cyan-400/30">
+                View Dart SDK ›
+              </span>
+            </button>
+          )}
         </div>
 
         {/* Modal Body */}

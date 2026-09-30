@@ -26,6 +26,7 @@ import { UpgradeModal } from './components/UpgradeModal';
 import { AddMemberModal } from './components/AddMemberModal';
 import { DetailedAnalysisModal } from './components/DetailedAnalysisModal';
 import { AndroidInstallModal } from './components/AndroidInstallModal';
+import { FlutterHybridModal } from './components/FlutterHybridModal';
 import { OfflineIndicator } from './components/OfflineIndicator';
 
 export default function App() {
@@ -44,6 +45,7 @@ export default function App() {
   const [isUpgradeOpen, setIsUpgradeOpen] = useState(false);
   const [isAddMemberOpen, setIsAddMemberOpen] = useState(false);
   const [isAndroidModalOpen, setIsAndroidModalOpen] = useState(false);
+  const [isFlutterModalOpen, setIsFlutterModalOpen] = useState(false);
   const [detailedAnalysisData, setDetailedAnalysisData] = useState<{
     isOpen: boolean;
     title: string;
@@ -181,6 +183,7 @@ export default function App() {
           onAddMember={() => setIsAddMemberOpen(true)}
           onOpenUpgrade={() => setIsUpgradeOpen(true)}
           onOpenAndroidModal={() => setIsAndroidModalOpen(true)}
+          onOpenFlutterModal={() => setIsFlutterModalOpen(true)}
         />
       );
     }
@@ -198,6 +201,7 @@ export default function App() {
             onOpenUpgrade={() => setIsUpgradeOpen(true)}
             onAddMember={() => setIsAddMemberOpen(true)}
             onOpenAndroidModal={() => setIsAndroidModalOpen(true)}
+            onOpenFlutterModal={() => setIsFlutterModalOpen(true)}
           />
         );
 
@@ -307,6 +311,7 @@ export default function App() {
             onOpenUpgrade={() => setIsUpgradeOpen(true)}
             onAddMember={() => setIsAddMemberOpen(true)}
             onOpenAndroidModal={() => setIsAndroidModalOpen(true)}
+            onOpenFlutterModal={() => setIsFlutterModalOpen(true)}
           />
         );
     }
@@ -371,6 +376,13 @@ export default function App() {
         <AndroidInstallModal
           isOpen={isAndroidModalOpen}
           onClose={() => setIsAndroidModalOpen(false)}
+          onOpenFlutterModal={() => setIsFlutterModalOpen(true)}
+        />
+
+        {/* Flutter Hybrid Mobile Platform & Source Code Exporter Modal */}
+        <FlutterHybridModal
+          isOpen={isFlutterModalOpen}
+          onClose={() => setIsFlutterModalOpen(false)}
         />
 
         {/* Global Offline Mode Status Banner */}
